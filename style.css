@@ -36,11 +36,22 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to allow scrolling */
     color: var(--text-color);
-    overflow: hidden;
+    overflow-y: auto; /* Changed from hidden to auto */
     position: relative;
+    padding: 40px 0;
 }
+
+/* ... existing styles ... */
+
+.comments-area {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+    text-align: left;
+}
+
 
 /* Theme Toggle Button Styles */
 .theme-toggle {

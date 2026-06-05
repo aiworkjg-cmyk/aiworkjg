@@ -1,14 +1,39 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Lotto Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="background-texture"></div>
+    <div class="theme-toggle">
+        <button id="theme-btn">
+            <span class="icon">🌙</span>
+            <span class="text">다크 모드</span>
+        </button>
+    </div>
+    <main class="container">
+        <header>
+            <h1 class="hero-text">오늘의 <span class="highlight">행운</span>을 확인하세요</h1>
+            <p class="subtitle">버튼을 눌러 6개의 행운의 숫자를 확인해보세요.</p>
+        </header>
+
+        <section class="result-area">
+            <div id="lotto-numbers" class="numbers-container">
+                <!-- Numbers will be injected here -->
+                <div class="placeholder-text">행운을 기다리는 중...</div>
+            </div>
+        </section>
+
+        <section class="action-area">
+            <button id="generate-btn" class="glow-button">번호 생성하기</button>
+        </section>
+    </main>
+    <script src="main.js" type="module"></script>
 </body>
 </html>

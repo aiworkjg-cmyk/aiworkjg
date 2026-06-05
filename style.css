@@ -1,1 +1,191 @@
-/* Add styles here */
+:root {
+    /* Dark Mode (Default) */
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --accent-color: #ffd700;
+    --bg-color: #0f0c29;
+    --bg-gradient: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-color: #ffffff;
+    --subtitle-color: rgba(255, 255, 255, 0.8);
+    --shadow-deep: 0 20px 50px rgba(0, 0, 0, 0.5);
+    --glow-shadow: 0 0 20px rgba(118, 75, 162, 0.6);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode {
+    --bg-color: #f8f9fa;
+    --bg-gradient: linear-gradient(to bottom, #e9ecef, #dee2e6, #f8f9fa);
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --text-color: #212529;
+    --subtitle-color: rgba(33, 37, 41, 0.7);
+    --shadow-deep: 0 20px 50px rgba(0, 0, 0, 0.1);
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    background: var(--bg-color);
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+#theme-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.background-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-deep);
+    text-align: center;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+.hero-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+body.light-mode .highlight {
+    color: #d4af37;
+    text-shadow: none;
+}
+
+.subtitle {
+    color: var(--subtitle-color);
+    font-size: 1.1rem;
+}
+
+.result-area {
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.numbers-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.placeholder-text {
+    font-size: 1.2rem;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.number-ball {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: scale(0);
+}
+
+@keyframes popIn {
+    to { transform: scale(1); }
+}
+
+.glow-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--glow-shadow);
+}
+
+.glow-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 30px rgba(118, 75, 162, 0.8);
+}
+
+.glow-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Color variations for balls */
+.ball-1 { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+.ball-2 { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); }
+.ball-3 { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); }
+.ball-4 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+.ball-5 { background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); }
+.ball-6 { background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); }
+
